@@ -24,15 +24,20 @@ const Service: React.FC = () => {
   return (
     <div id="how-it-works" className="bg-primary">
       <div className="container mx-auto flex min-h-screen items-center justify-center">
-        <section className="flex flex-col items-center py-10">
-          <h2 className="mb-28 max-w-4xl text-center text-5xl font-bold text-white">
+        <section className="flex flex-col items-center py-10" aria-labelledby="service-heading">
+          <h2
+            id="service-heading"
+            className="mb-28 max-w-4xl text-center text-5xl font-bold text-white"
+          >
             Unlock Your Aspirations with Our Dedicated Team by Your Side
           </h2>
 
-          <div className="grid-col-3 flex gap-5">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {items.map((item, index) => (
-              <Card key={index}>
-                <h3 className="mb-16 text-xl font-bold">{item.label}</h3>
+              <Card key={index} aria-labelledby={`card-heading-${index}`}>
+                <h3 id={`card-heading-${index}`} className="mb-16 text-xl font-bold">
+                  {item.label}
+                </h3>
                 <Image src={item.imgSrc} alt={item.imgAlt} width={300} height={200} />
               </Card>
             ))}

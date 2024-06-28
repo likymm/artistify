@@ -23,18 +23,23 @@ const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, target
 
 const Icon: React.FC = () => {
   return (
-    <div className="h-5 w-5 rounded-full bg-black/10 transition hover:scale-125 hover:bg-black/50"></div>
+    <div
+      role="img"
+      aria-label="icon"
+      className="h-5 w-5 rounded-full bg-black/10 transition hover:scale-125 hover:bg-black/50"
+    ></div>
   );
 };
 
 const Navigation: React.FC<NavProps> = ({ isIcons }) => {
   return (
-    <nav className="space-x-16">
+    <nav aria-label="Main navigation" className="space-x-16">
       {navLinks.map((link) => (
         <Link
           key={link.href}
           href={link.href}
           className="text-gray-400 transition hover:text-gray-800"
+          aria-label={link.label}
           onClick={(e) => handleScroll(e, link.href)}
         >
           {isIcons ? <Icon /> : link.label}
