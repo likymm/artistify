@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './ui/Card';
 import Image from 'next/image';
+import { NavId } from './ui/Navigation';
 
 const items = [
   {
@@ -20,22 +21,22 @@ const items = [
   },
 ];
 
-const Service: React.FC = () => {
+const HowItWorks: React.FC = () => {
   return (
-    <div id="how-it-works" className="bg-primary">
-      <div className="container mx-auto flex min-h-screen items-center justify-center">
-        <section className="flex flex-col items-center py-10" aria-labelledby="service-heading">
+    <div id={NavId.howItWorks} className="bg-primary">
+      <div className="mx-auto flex min-h-screen max-w-7xl items-center justify-center px-5 py-32">
+        <section className="flex flex-col items-center" aria-labelledby="service-heading">
           <h2
             id="service-heading"
-            className="mb-28 max-w-4xl text-center text-5xl font-bold text-white"
+            className="mb-5 max-w-4xl text-center font-bold !leading-snug text-white md:mb-28 md:text-5xl"
           >
             Unlock Your Aspirations with Our Dedicated Team by Your Side
           </h2>
 
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {items.map((item, index) => (
-              <Card key={index} aria-labelledby={`card-heading-${index}`}>
-                <h3 id={`card-heading-${index}`} className="mb-16 text-xl font-bold">
+              <Card key={index} aria-labelledby={`card-heading-${index}`} className="max-w-sm">
+                <h3 id={`card-heading-${index}`} className="mb-16 font-bold md:text-xl">
                   {item.label}
                 </h3>
                 <Image src={item.imgSrc} alt={item.imgAlt} width={300} height={200} />
@@ -48,4 +49,4 @@ const Service: React.FC = () => {
   );
 };
 
-export default Service;
+export default HowItWorks;

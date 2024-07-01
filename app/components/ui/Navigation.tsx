@@ -1,3 +1,4 @@
+import { handleScroll } from '@/utils/Helpers';
 import Link from 'next/link';
 import React from 'react';
 
@@ -5,21 +6,25 @@ interface NavProps {
   isIcons?: boolean;
 }
 
-const navLinks = [
-  { href: '#home', label: 'Home' },
-  { href: '#how-it-works', label: 'How it works' },
-  { href: '#work-with-us', label: 'Work with us' },
-  { href: '#services', label: 'Services' },
-  { href: '#get-in-touch', label: 'Get in touch' },
-];
+export enum NavId {
+  home = 'home',
+  howItWorks = 'how-it-works',
+  workWithUs = 'work-with-us',
+  services = 'services',
+  getInTouch = 'get-in-touch',
+  goal = 'goal',
+  collaborate = 'colaborative-service',
+}
 
-const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId: string) => {
-  e.preventDefault();
-  const targetElement = document.getElementById(targetId.replace('#', ''));
-  if (targetElement) {
-    targetElement.scrollIntoView({ behavior: 'smooth' });
-  }
-};
+const navLinks = [
+  { href: '#' + NavId.home, label: 'Home' },
+  { href: '#' + NavId.howItWorks, label: 'How it works' },
+  { href: '#' + NavId.workWithUs, label: 'Work with us' },
+  { href: '#' + NavId.goal, label: 'Goal' },
+  { href: '#' + NavId.collaborate, label: 'Collaborate' },
+  { href: '#' + NavId.services, label: 'Services' },
+  { href: '#' + NavId.getInTouch, label: 'Get in touch' },
+];
 
 const Icon: React.FC = () => {
   return (
@@ -33,12 +38,12 @@ const Icon: React.FC = () => {
 
 const Navigation: React.FC<NavProps> = ({ isIcons }) => {
   return (
-    <nav aria-label="Main navigation" className="space-x-16">
+    <nav aria-label="Main navigation" className="flex flex-col md:block md:space-x-16">
       {navLinks.map((link) => (
         <Link
           key={link.href}
           href={link.href}
-          className="text-gray-400 transition hover:text-gray-800"
+          className="text-gray-500 transition hover:text-gray-800"
           aria-label={link.label}
           onClick={(e) => handleScroll(e, link.href)}
         >

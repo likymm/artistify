@@ -1,7 +1,12 @@
 'use client';
 
+import Collaborate from './components/Collaborate';
+import Contact from './components/Contact';
+import Goal from './components/Goal';
 import Hero from './components/Hero';
-import Service from './components/Service';
+import HowItWorks from './components/HowItWorks';
+import Services from './components/Services';
+import WorkWithUs from './components/WorkWithUs';
 import Navigation from './components/ui/Navigation';
 
 export default function Home() {
@@ -11,7 +16,12 @@ export default function Home() {
         <Navigation isIcons />
       </div>
       <Hero />
-      <Service />
+      <HowItWorks />
+      <WorkWithUs />
+      <Goal />
+      <Collaborate />
+      <Services />
+      <Contact />
     </main>
   );
 }

@@ -12,13 +12,23 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deploy
 
-Run the development server:
+To create a production build:
 
 ```bash
 npm run build
 ```
 
-When running next build, Next.js generates the static export into the `out` folder
+After running `next build`, Next.js will produce an `out` folder which contains the HTML/CSS/JS assets.
+
+## Configuration
+
+### Environment Variables
+
+Create a `.env.local` file to add environment-specific variables. For example:
+
+```yml
+NEXT_PUBLIC_API_URL=https://api.example.com
+```
 
 ## Learn More
 

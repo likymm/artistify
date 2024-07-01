@@ -3,29 +3,32 @@ import React from 'react';
 import Button from './ui/Button';
 import Header from './Header';
 import Image from 'next/image';
+import { NavId } from './ui/Navigation';
+import { handleScroll } from '@/utils/Helpers';
 
 const Hero: React.FC = () => {
-  const handleClick = () => {
-    alert('Coming soon!');
-  };
   return (
     <div
-      id="home"
-      className="container mx-auto flex min-h-screen items-center justify-center bg-white"
+      id={NavId.home}
+      className="mx-auto flex min-h-screen max-w-7xl items-center justify-center bg-white"
     >
       <section
-        className="flex flex-col items-center py-10 text-center"
+        className="flex flex-col items-center px-5 py-32 text-center"
         aria-labelledby="hero-heading"
       >
         <Header></Header>
         <div className="max-w-2xl">
-          <h1 id="hero-heading" className="mt-10 text-6xl font-extrabold leading-snug">
+          <h1 id="hero-heading" className="mt-10 text-xl font-extrabold !leading-snug md:text-6xl">
             Powering the Future of Digital Experiences
           </h1>
-          <p className="mt-8 text-xl font-bold text-gray-700">
+          <p className="mt-8 font-bold text-gray-700 md:text-xl">
             Innovative web solutions tailored to elevate your brand.
           </p>
-          <Button onClick={handleClick} aria-label="Test Button" className="mt-7">
+          <Button
+            onClick={(e) => handleScroll(e, '#' + NavId.getInTouch)}
+            aria-label="Connect with us"
+            className="mt-7"
+          >
             Connect with us
           </Button>
         </div>
