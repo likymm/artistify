@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Button from './ui/Button';
 import Header from './Header';
 import Image from 'next/image';
 import { NavId } from './ui/Navigation';
 import { handleScroll } from '@/utils/Helpers';
+import { Button } from '@/components/ui/button';
 
 const Hero: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
+import { Button } from '@/components/ui/button';
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import Button from '../ui/Button';
 
 type Inputs = {
   name: string;
@@ -116,7 +116,8 @@ const ContactForm: React.FC = () => {
         <div className="text-center">
           <Button
             type="submit"
-            className="w-full bg-tertiary hover:bg-tertiary focus:outline-none focus:ring-2 focus:ring-tertiary focus:ring-opacity-75"
+            className="w-full bg-tertiary hover:bg-tertiary/90 focus:outline-none focus:ring-2 focus:ring-tertiary focus:ring-opacity-75"
+            size={'lg'}
           >
             Send my message
           </Button>
