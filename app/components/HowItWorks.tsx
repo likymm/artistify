@@ -1,7 +1,7 @@
 import React from 'react';
-import Card from './ui/Card';
 import Image from 'next/image';
 import { NavId } from './ui/Navigation';
+import { Card, CardContent } from '@/components/ui/card';
 
 const items = [
   {
@@ -35,11 +35,17 @@ const HowItWorks: React.FC = () => {
 
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {items.map((item, index) => (
-              <Card key={index} aria-labelledby={`card-heading-${index}`} className="max-w-sm">
-                <h3 id={`card-heading-${index}`} className="mb-16 font-bold md:text-xl">
-                  {item.label}
-                </h3>
-                <Image src={item.imgSrc} alt={item.imgAlt} width={300} height={200} />
+              <Card
+                key={index}
+                aria-labelledby={`card-heading-${index}`}
+                className="max-w-sm px-10 py-20"
+              >
+                <CardContent>
+                  <h3 id={`card-heading-${index}`} className="mb-16 font-bold md:text-xl">
+                    {item.label}
+                  </h3>
+                  <Image src={item.imgSrc} alt={item.imgAlt} width={300} height={200} />
+                </CardContent>
               </Card>
             ))}
           </div>

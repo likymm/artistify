@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavId } from './ui/Navigation';
-import Card from './ui/Card';
+import { Card } from '@/components/ui/card';
 
 const serviceItems: string[] = [
   'Websites',

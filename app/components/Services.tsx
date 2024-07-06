@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { NavId } from './ui/Navigation';
-import Card from './ui/Card';
+import { Card } from '@/components/ui/card';
 
 const serviceItems: { imgUrl: string; description: string }[] = [
   {
