@@ -1,126 +1,126 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import {
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+  Form,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { zodResolver } from '@hookform/resolvers/zod';
 import React from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
-type Inputs = {
-  name: string;
-  contactNo: string;
-  email: string;
-  message: string;
-};
+import { z } from 'zod';
+
+const formSchema = z.object({
+  name: z.string().min(2).max(50),
+  contactNo: z.string().min(12).max(12),
+  email: z.string().includes('@'),
+  message: z.string(),
+});
 
 const ContactForm: React.FC = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>();
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: '',
+      contactNo: '',
+      email: '',
+      message: '',
+    },
+  });
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values);
+  }
 
   return (
     <Card className="mx-auto mt-10 w-full max-w-2xl rounded-3xl bg-white p-8 shadow-md">
-      <CardContent className="pt-5 text-center">
-        <h1 className="mb-4 text-4xl font-bold">Get In Touch</h1>
-        <p className="mb-8 text-sm text-gray-500">
-          Want to learn more about our services, our dedicated support team is here to help you.
-        </p>
-        <form onSubmit={handleSubmit(onSubmit)} aria-labelledby="form-title">
-          <div className="relative mb-8">
-            <label
-              htmlFor="name"
-              className="absolute -top-3 left-3 block rounded bg-white px-1 text-sm text-gray-700"
-            >
-              Your name
-            </label>
-            <input
-              {...register('name', { required: 'Name is required' })}
-              type="text"
-              id="name"
+      <CardContent className="pt-5">
+        <div className="text-center">
+          <h1 id="form-title" className="mb-4 text-4xl font-bold">
+            Get In Touch
+          </h1>
+          <p className="mb-10 text-sm text-gray-500">
+            Want to learn more about our services, our dedicated support team is here to help you.
+          </p>
+        </div>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} aria-labelledby="form-title">
+            <FormField
+              control={form.control}
               name="name"
-              placeholder="Ex. Juan dela Cruz"
-              className="mt-1 block w-full rounded-xl border border-gray-500 px-5 py-3 shadow-sm focus:border-primary focus:outline-none focus:ring-primary"
-              aria-label="Your name"
-              aria-describedby="name-error"
+              render={({ field }) => (
+                <FormItem className="relative mb-10">
+                  <FormLabel className="absolute -top-2 left-3 block rounded bg-white px-1">
+                    Your name
+                  </FormLabel>
+                  <FormControl>
+                    <Input placeholder="Ex. Juan dela Cruz" {...field} className="px-" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-            {errors.name && (
-              <p id="name-error" className="ml-4 mt-1 text-xs text-red-500">
-                {errors.name.message}
-              </p>
-            )}
-          </div>
-          <div className="relative mb-8">
-            <label
-              htmlFor="contact"
-              className="absolute -top-3 left-3 block rounded bg-white px-1 text-sm text-gray-700"
-            >
-              Contact no.
-            </label>
-            <input
-              {...register('contactNo')}
-              type="text"
-              id="contact"
-              name="contact"
-              placeholder="Ex. +639 000 00000"
-              className="mt-1 block w-full rounded-xl border border-gray-500 px-5 py-3 shadow-sm focus:border-primary focus:outline-none focus:ring-primary"
-              aria-label="Contact number"
+            <FormField
+              control={form.control}
+              name="contactNo"
+              render={({ field }) => (
+                <FormItem className="relative mb-10">
+                  <FormLabel className="absolute -top-3 left-3 block rounded bg-white px-1">
+                    Contact no.
+                  </FormLabel>
+                  <FormControl>
+                    <Input placeholder="Ex. +639 000 00000" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-          </div>
-          <div className="relative mb-8">
-            <label
-              htmlFor="email"
-              className="absolute -top-3 left-3 block rounded bg-white px-1 text-sm text-gray-700"
-            >
-              Email
-            </label>
-            <input
-              {...register('email', { required: 'Email is required' })}
-              type="email"
-              id="email"
+            <FormField
+              control={form.control}
               name="email"
-              placeholder="Ex. you@example.com"
-              className="mt-1 block w-full rounded-xl border border-gray-500 px-5 py-3 shadow-sm focus:border-primary focus:outline-none focus:ring-primary"
-              aria-label="Email Address"
-              aria-describedby="email-error"
+              render={({ field }) => (
+                <FormItem className="relative mb-10">
+                  <FormLabel className="absolute -top-3 left-3 block rounded bg-white px-1">
+                    Email
+                  </FormLabel>
+                  <FormControl>
+                    <Input placeholder="Ex. you@example.com" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-            {errors.email && (
-              <p id="email-error" className="ml-4 mt-1 text-xs text-red-500">
-                {errors.email.message}
-              </p>
-            )}
-          </div>
-          <div className="relative mb-8">
-            <label
-              htmlFor="message"
-              className="absolute -top-3 left-3 block rounded bg-white px-1 text-sm text-gray-700"
-            >
-              Your message
-            </label>
-            <textarea
-              {...register('message', { required: 'Message is required' })}
-              id="message"
+            <FormField
+              control={form.control}
               name="message"
-              placeholder="What`s on your mind?"
-              className="mt-1 block w-full rounded-xl border border-gray-500 px-5 py-3 shadow-sm focus:border-primary focus:outline-none focus:ring-primary"
-              rows={4}
-              aria-label="Your message"
-              aria-describedby="message-error"
-            ></textarea>
-            {errors.message && (
-              <p id="message-error" className="ml-4 mt-1 text-xs text-red-500">
-                {errors.message.message}
-              </p>
-            )}
-          </div>
-          <Button
-            type="submit"
-            className="w-full bg-tertiary hover:bg-tertiary/90 focus:outline-none focus:ring-2 focus:ring-tertiary focus:ring-opacity-75"
-            size={'lg'}
-          >
-            Send my message
-          </Button>
-        </form>
+              render={({ field }) => (
+                <FormItem className="relative mb-10">
+                  <FormLabel className="absolute -top-3 left-3 block rounded bg-white px-1">
+                    Your message
+                  </FormLabel>
+                  <FormControl>
+                    <Input placeholder="What`s on your mind?" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button
+              type="submit"
+              className="w-full bg-tertiary hover:bg-tertiary/90 focus:outline-none focus:ring-2 focus:ring-tertiary focus:ring-opacity-75"
+              size={'lg'}
+            >
+              Send my message
+            </Button>
+          </form>
+        </Form>
       </CardContent>
     </Card>
   );
