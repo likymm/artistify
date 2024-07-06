@@ -8,9 +8,9 @@ const Contact: React.FC = () => {
       id={NavId.getInTouch}
       className="justify-center bg-blue-950 bg-[url(/clouds.svg)] bg-cover bg-bottom bg-no-repeat"
     >
-      <div className="mx-auto flex min-h-screen max-w-5xl items-center px-5 py-32">
+      <div className="mx-auto flex max-w-5xl items-center px-5 py-32 md:min-h-screen">
         <div>
-          <h2 className="mb-5 text-center font-bold !leading-snug text-white md:text-6xl">
+          <h2 className="mb-5 text-center text-2xl font-bold !leading-snug text-white md:text-6xl">
             What are you waiting for? Let`s Artistify your Needs!
           </h2>
           {/* <Button onClick={handleClick} aria-label="Connect with us" className="mx-auto mt-7">

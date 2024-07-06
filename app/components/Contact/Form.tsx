@@ -101,7 +101,7 @@ const ContactForm: React.FC = () => {
             {...register('message', { required: 'Message is required' })}
             id="message"
             name="message"
-            placeholder="What’s on your mind?"
+            placeholder="What`s on your mind?"
             className="mt-1 block w-full rounded-xl border border-gray-500 px-5 py-3 shadow-sm focus:border-primary focus:outline-none focus:ring-primary"
             rows={4}
             aria-label="Your message"

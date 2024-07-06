@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
   return (
     <div
       id={NavId.home}
-      className="mx-auto flex min-h-screen max-w-7xl items-center justify-center bg-white"
+      className="mx-auto flex max-w-7xl items-center justify-center bg-white md:min-h-screen"
     >
       <section
         className="flex flex-col items-center px-5 py-32 text-center"
@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
           <h1 id="hero-heading" className="mt-10 text-xl font-extrabold !leading-snug md:text-6xl">
             Powering the Future of Digital Experiences
           </h1>
-          <p className="mt-8 font-bold text-gray-700 md:text-xl">
+          <p className="font-bold text-gray-700 md:mt-8 md:text-xl">
             Innovative web solutions tailored to elevate your brand.
           </p>
           <Button

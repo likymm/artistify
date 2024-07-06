@@ -15,20 +15,20 @@ const items = [
     imgAlt: 'Find and Present Solutions to Reach Your Goals.',
   },
   {
-    label: "Work with Our Team Until You're Fully Satisfied.",
+    label: 'Work with Our Team Until You`re Fully Satisfied.',
     imgSrc: '/collab.svg',
-    imgAlt: "Work with Our Team Until You're Fully Satisfied.",
+    imgAlt: 'Work with Our Team Until You`re Fully Satisfied.',
   },
 ];
 
 const HowItWorks: React.FC = () => {
   return (
     <div id={NavId.howItWorks} className="bg-primary">
-      <div className="mx-auto flex min-h-screen max-w-7xl items-center justify-center px-5 py-32">
+      <div className="mx-auto flex max-w-7xl items-center justify-center px-5 py-32 md:min-h-screen">
         <section className="flex flex-col items-center" aria-labelledby="service-heading">
           <h2
             id="service-heading"
-            className="mb-5 max-w-4xl text-center font-bold !leading-snug text-white md:mb-28 md:text-5xl"
+            className="mb-5 max-w-4xl text-center text-2xl font-bold !leading-snug text-white md:mb-28 md:text-5xl"
           >
             Unlock Your Aspirations with Our Dedicated Team by Your Side
           </h2>

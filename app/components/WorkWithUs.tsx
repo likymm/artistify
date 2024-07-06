@@ -6,10 +6,12 @@ const WorkWithUs: React.FC = () => {
   return (
     <div
       id={NavId.workWithUs}
-      className="flex min-h-screen items-center justify-center bg-gray-50 px-5 py-32"
+      className="flex items-center justify-center bg-gray-50 px-5 py-32 md:min-h-screen"
     >
       <div className="mx-auto max-w-7xl">
-        <h2 className="mb-10 font-bold !leading-snug md:text-5xl">Let’s Artistify your Idea</h2>
+        <h2 className="mb-10 text-2xl font-bold !leading-snug md:text-5xl">
+          Let`s Artistify your Idea
+        </h2>
         <div className="grid gap-10 md:grid-cols-2">
           <div>
             <h3 className="mb-3 font-bold md:text-2xl">Streamlining Collaboration</h3>
@@ -28,7 +30,7 @@ const WorkWithUs: React.FC = () => {
           <div>
             <Image
               src="/idea.svg"
-              alt="Let’s Artistify your Idea<"
+              alt="Let`s Artistify your Idea"
               width={600}
               height={400}
               priority

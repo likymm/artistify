@@ -5,35 +5,35 @@ import Card from './ui/Card';
 
 const serviceItems: { imgUrl: string; description: string }[] = [
   {
-    imgUrl: '/hero.svg',
+    imgUrl: '/management-system.png',
     description: 'Customized management system',
   },
   {
-    imgUrl: '/hero.svg',
+    imgUrl: '/data.png',
     description: 'Structured data architecture',
   },
   {
-    imgUrl: '/hero.svg',
+    imgUrl: '/uiux.png',
     description: 'Tailed design solution by UI/UX designer',
   },
   {
-    imgUrl: '/hero.svg',
+    imgUrl: '/support.png',
     description: 'Complete development support',
   },
   {
-    imgUrl: '/hero.svg',
+    imgUrl: '/hosting.png',
     description: 'Web hosting',
   },
   {
-    imgUrl: '/hero.svg',
+    imgUrl: '/security.png',
     description: 'Heightened security measures',
   },
   {
-    imgUrl: '/hero.svg',
+    imgUrl: '/qa.png',
     description: 'Designated business analyst & quality assurance',
   },
   {
-    imgUrl: '/hero.svg',
+    imgUrl: '/manager.png',
     description: 'Exclusive project manager',
   },
 ];
@@ -52,7 +52,13 @@ const Services: React.FC = () => {
           <div className="grid gap-5 md:grid-cols-4">
             {serviceItems.map((service) => (
               <Card key={service.description} className="flex flex-col items-center p-5 shadow-lg">
-                <Image src="/hero.svg" alt="Artistify hero" width={200} height={200} />
+                <Image
+                  src={service.imgUrl}
+                  alt={service.description}
+                  width={80}
+                  height={80}
+                  className="mb-5"
+                />
                 <p className="text-center">{service.description}</p>
               </Card>
             ))}
