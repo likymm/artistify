@@ -10,18 +10,20 @@ const Hero: React.FC = () => {
   return (
     <div
       id={NavId.home}
-      className="mx-auto flex max-w-7xl items-center justify-center bg-white md:min-h-screen"
+      className="mx-auto flex max-w-7xl items-center justify-center bg-white xl:min-h-screen"
     >
       <section
         className="flex flex-col items-center px-5 py-32 text-center"
         aria-labelledby="hero-heading"
       >
-        <Header></Header>
+        <div className="mb-10">
+          <Header></Header>
+        </div>
         <div className="max-w-2xl">
-          <h1 id="hero-heading" className="mt-10 text-xl font-extrabold !leading-snug md:text-6xl">
+          <h1 id="hero-heading" className="text-3xl font-extrabold !leading-snug md:text-6xl">
             Powering the Future of Digital Experiences
           </h1>
-          <p className="font-bold text-gray-700 md:mt-8 md:text-xl">
+          <p className="mt-4 font-bold text-gray-700 md:mt-8 md:text-xl">
             Innovative web solutions tailored to elevate your brand.
           </p>
           <Button
@@ -32,7 +34,14 @@ const Hero: React.FC = () => {
             Connect with us
           </Button>
         </div>
-        <Image src="/hero.svg" alt="Artistify hero" width={600} height={400} priority />
+        <Image
+          src="/hero.svg"
+          alt="Artistify hero"
+          width={600}
+          height={400}
+          priority
+          className="px-10 md:px-0"
+        />
       </section>
     </div>
   );

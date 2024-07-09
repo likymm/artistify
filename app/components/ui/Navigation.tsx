@@ -43,7 +43,7 @@ const Navigation: React.FC<NavProps> = ({ isIcons }) => {
         <Link
           key={link.href}
           href={link.href}
-          className="text-gray-500 transition hover:text-gray-800"
+          className="whitespace-nowrap text-gray-500 transition hover:text-gray-800"
           aria-label={link.label}
           onClick={(e) => handleScroll(e, link.href)}
         >

@@ -16,7 +16,7 @@ const serviceItems: string[] = [
 const Collaborate: React.FC = () => {
   return (
     <div id={NavId.collaborate} className="bg-tertiary">
-      <div className="mx-auto flex max-w-7xl items-center justify-center px-5 py-32 md:min-h-screen">
+      <div className="mx-auto flex max-w-7xl items-center justify-center px-5 py-32 xl:min-h-screen">
         <div>
           <h2 className="mx-auto mb-8 max-w-3xl text-center text-2xl font-bold !leading-snug md:mb-20 md:text-5xl">
             Discover Our Collaborative Services Tailored to Your Needs
