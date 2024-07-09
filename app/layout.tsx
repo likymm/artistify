@@ -10,6 +10,13 @@ export const metadata: Metadata = {
     'Our goal is to collaborate with businesses of every scale, guaranteeing access that will flourish in the digital realm.',
   keywords:
     'web solutions, digital experiences, UI/UX design, development support, business analyst, quality assurance',
+  openGraph: {
+    title: 'Artistify.js - Powering the Future of Digital Experiences',
+    description: 'Innovative web solutions tailored to elevate your brand.',
+    images: 'https://artistify.com.ph/artistify.svg',
+    url: 'https://artistify.com.ph',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
