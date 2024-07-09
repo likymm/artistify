@@ -38,12 +38,12 @@ const Icon: React.FC = () => {
 
 const Navigation: React.FC<NavProps> = ({ isIcons }) => {
   return (
-    <nav aria-label="Main navigation" className="flex flex-col md:block md:space-x-16">
+    <nav aria-label="Main navigation" className="flex flex-col xl:block xl:space-x-16">
       {navLinks.map((link) => (
         <Link
           key={link.href}
           href={link.href}
-          className="whitespace-nowrap text-gray-500 transition hover:text-gray-800"
+          className="mb-5 whitespace-nowrap text-gray-500 transition hover:text-gray-800"
           aria-label={link.label}
           onClick={(e) => handleScroll(e, link.href)}
         >

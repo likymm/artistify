@@ -5,6 +5,7 @@
     "eamodio.gitlens",
     "tabnine.tabnine-vscode",
     "sonarsource.sonarlint-vscode",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "dsznajder.es7-react-js-snippets"
   ]
 }
